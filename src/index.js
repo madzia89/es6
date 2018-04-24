@@ -211,4 +211,9 @@
 
 //MODULES EXPORT
 import {names1} from './exports'  //zaimportuje zmienną name1 z exports.js
+import {names2 as someName} from './exports'
+import myNameForImportedByDEFAULT from './exports'  //import default można to łączyć również z powyższym sposobem importu {} np
+// import myNameForImportedByDEFAULT, {names1} from './eports'
+console.log(someName)
 console.log(names1)
+console.log(myNameForImportedByDEFAULT)
