@@ -149,10 +149,17 @@ window.makeSoundInGlobalScope() //zadziała bo funkcja this pamięta this z mome
 //poniżej to samo ze strzałkami
 function ArrowCounter (){
     this.counter = 0
-    setInterval(
-        () => this.counter++
+    this.intervalId = setInterval(
+        () => {this.counter++
+        console.log(this.counter)}
         ,
         1000
+    )
+    //poniższe cztery linijki ustawiają czas po jakim ma się przestać wykonywać setInterval
+    setTimeout(
+        () => clearInterval(this.intervalId)
+        ,
+        5000
     )
 }
 window.arrowCounter = new ArrowCounter()
