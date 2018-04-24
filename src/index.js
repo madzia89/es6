@@ -208,12 +208,34 @@
 // const animalFromConstructor = new AnimalConstructor('wrr')
 // console.log(animalFromConstructor)
 
+//
+// //MODULES IMPORT
+// import {names1} from './exports'  //zaimportuje zmienną name1 z exports.js
+// import {names2 as someName} from './exports'
+// import myNameForImportedByDEFAULT from './exports'  //import default można to łączyć również z powyższym sposobem importu {} np
+// // import myNameForImportedByDEFAULT, {names1} from './eports'
+// console.log(someName)
+// console.log(names1)
+// console.log(myNameForImportedByDEFAULT)
 
-//MODULES EXPORT
-import {names1} from './exports'  //zaimportuje zmienną name1 z exports.js
-import {names2 as someName} from './exports'
-import myNameForImportedByDEFAULT from './exports'  //import default można to łączyć również z powyższym sposobem importu {} np
-// import myNameForImportedByDEFAULT, {names1} from './eports'
-console.log(someName)
-console.log(names1)
-console.log(myNameForImportedByDEFAULT)
+
+//DETRUKTURYZACJA
+const obj = {
+    name: 'Magda',
+    lastname: 'xxx'
+}
+
+const hello = ({name, lastname}) => {
+    console.log(`Hello ${name} ${lastname}`)
+}
+
+const someObj = {
+    skaj: {name: "Ania", lastname: "Umorusana"},
+    asdaaa: {name: "Hania", lastname: "Banana"},
+    seserf: {name: "Ewa", lastname: "Zdrzewa"},
+    skawerj: {name: "Bolek", lastname: "Lolek"}
+} //aby console.log imiona z tego:
+
+console.log(Object.entries(someObj).map(person => person[1].name)) //wykonsoluje same imiona ale ładniej zapiszemy to:
+console.log(Object.entries(someObj).map(([, {name}]) => name))
+
